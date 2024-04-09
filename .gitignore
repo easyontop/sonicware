@@ -1,2 +1,3 @@
 # Windows project build executables (contains credentials)
 *.bat
+**/package-lock.json

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/easyontop/sonicware/issues"
   },
-  "homepage": "https://github.com/easyontop/sonicware#readme"
+  "homepage": "https://github.com/easyontop/sonicware#readme",
+  "publishConfig": {
+    "@easyontop:registry": "https://npm.pkg.github.com"
+  }
 }
