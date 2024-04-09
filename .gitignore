@@ -1,3 +1,9 @@
 # Windows project build executables (contains credentials)
 *.bat
-**/package-lock.json
+
+# Credentials
+*.profile.txt
+
+# Packages
+node_modules
+package-lock.json
