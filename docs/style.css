@@ -16,6 +16,10 @@ p.code {
     padding-left: 15px;
 }
 
+.highlight-fc003 {
+    color: rgb(0 225 0);
+}
+
 .highlight-fc002 {
     color: #F65D90;
 }

@@ -291,3 +291,5 @@ class HypixelAPI {
         return data;
     }
 }
+
+exports.HypixelAPI = HypixelAPI;
