@@ -1,22 +1,29 @@
 {
-  "name": "sonicware",
-  "version": "0.0.1",
-  "description": "SonicBot Utilities",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/easyontop/sonicware.git"
-  },
-  "author": "easyontop._.",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/easyontop/sonicware/issues"
-  },
-  "homepage": "https://github.com/easyontop/sonicware#readme",
-  "dependencies": {
-    "node-fetch": "^2.7.0"
-  }
+    "name": "sonicware",
+    "version": "0.0.1",
+    "description": "SonicBot Utilities",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/easyontop/sonicware.git"
+    },
+    "author": "easyontop._.",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/easyontop/sonicware/issues"
+    },
+    "homepage": "https://github.com/easyontop/sonicware#readme",
+    "dependencies": {
+        "node-fetch": "^2.7.0"
+    },
+    "keywords": [
+        "minecraft",
+        "hypixel",
+        "skyblock",
+        "mc",
+        "java"
+    ]
 }

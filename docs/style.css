@@ -2,11 +2,26 @@ body {
     background-color: hsl(224 71% 4%);
     color: hsl(213 31% 91%);
     font-family: Minecraft;
-    text-align: center;
 }
 
 .__container__ {
     padding: 10px;
+}
+
+p.code {
+    border: 1px solid hsl(216 34% 17%);
+    width: calc(100% - 15px);
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.highlight-fc002 {
+    color: #F65D90;
+}
+
+.highlight-fc001 {
+    color: #96D0FF;
 }
 
 @font-face {
@@ -24,12 +39,21 @@ body {
     font-family: Orbitron;
     font-size: 4.5rem;
     font-weight: bold;
+    text-align: center;
+}
+
+.title-code {
+    padding-top: 10px;
+    font-family: Orbitron;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .info__ {
     color: rgb(160 160 160);
     font-family: Minecraft;
     font-size: 20;
+    text-align: center;
 }
 
 .buttonlist {
@@ -52,6 +76,25 @@ body {
     font-family: Orbitron;
     font-size: .875rem;
     margin: 0 auto;
+}
+
+a.button {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-family: Orbitron;
+    font-size: .875rem;
+    margin: 0 auto;
+}
+
+svg {
+    width: .8rem;
+    height: auto;
 }
 
 .highlight-blue {

@@ -75,7 +75,11 @@ class HypixelAPI {
     }
 
     GetHypixelAchievements() {
-        return this.FetchHypixelAPIEndpoint("resources.achievements", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.achievements",
+            {},
+            false
+        );
     }
 
     GetHypixelChallenges() {
@@ -87,7 +91,11 @@ class HypixelAPI {
     }
 
     GetHypixelGuildAchievements() {
-        return this.FetchHypixelAPIEndpoint("resoucres.guilds.achievements", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resoucres.guilds.achievements",
+            {},
+            false
+        );
     }
 
     GetVanityPets() {
@@ -95,34 +103,121 @@ class HypixelAPI {
     }
 
     GetVanityCompanions() {
-        return this.FetchHypixelAPIEndpoint("resources.vanity.companions", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.vanity.companions",
+            {},
+            false
+        );
     }
 
     GetSkyblockCollections() {
-        return this.FetchHypixelAPIEndpoint("resources.skyblock.collections", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.skyblock.collections",
+            {},
+            false
+        );
     }
 
     GetSkyblockSkills() {
-        return this.FetchHypixelAPIEndpoint("resources.skyblock.skills", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.skyblock.skills",
+            {},
+            false
+        );
     }
 
     GetSkyblockItems() {
-        return this.FetchHypixelAPIEndpoint("resources.skyblock.items", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.skyblock.items",
+            {},
+            false
+        );
     }
 
     GetSkyblockElection() {
-        return this.FetchHypixelAPIEndpoint("resources.skyblock.election", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resources.skyblock.election",
+            {},
+            false
+        );
     }
 
     GetCurrentSkyblockEvent() {
-        return this.FetchHypixelAPIEndpoint("resoucres.skyblock.bingo", {}, false);
+        return this.FetchHypixelAPIEndpoint(
+            "resoucres.skyblock.bingo",
+            {},
+            false
+        );
     }
 
     GetSkyblockNews() {
         return this.FetchHypixelAPIEndpoint("skyblock.news");
     }
 
+    GetPlayerAuctions(options = {}) {
+        if (
+            typeof options.uuid != "string" &&
+            typeof options.player != "string" &&
+            typeof options.profile != "string"
+        )
+            throw new TypeError(errorCodes.MissingFields);
+            return this.FetchHypixelAPIEndpoint("skyblock.auction", options);
+    }
     
+    GetCurrentAuctions(page) {
+        page = page || 0;
+        if (typeof page != "number") throw new TypeError(errorCodes.InvalidFields);
+        return this.FetchHypixelAPIEndpoint("skyblock.auctions", {page}, false);
+    }
+
+    GetRecentEndedAuctions() {
+        return this.FetchHypixelAPIEndpoint("skyblock.auctions-ended", {}, false);
+    }
+
+    GetBazaarStats() {
+        return this.FetchHypixelAPIEndpoint("skyblock.bazaar", {}, false);
+    }
+
+    GetSkyblockProfile(profileUUID) {
+        if (typeof profileUUID != "string") throw new TypeError(errorCodes.MissingFields);
+        return this.FetchHypixelAPIEndpoint("skyblock.profile", {profile:profileUUID});
+    }
+
+
+    GetPlayerSkyblockProfiles(uuid) {
+        if (typeof uuid != "string") throw new TypeError(errorCodes.MissingFields);
+        return this.FetchHypixelAPIEndpoint("skyblock.profiles",{uuid});
+    }
+
+    GetMuseumByProfile(profileUUID) {
+        if (typeof profileUUID != "string") throw new TypeError(errorCodes.MissingFields);
+        return this.FetchHypixelAPIEndpoint("skyblock.museum",{profile:profileUUID});
+    }
+
+    GetBingoData(uuid) {
+        if (typeof uuid != "string") throw new TypeError(errorCodes.MissingFields);
+        return this.FetchHypixelAPIEndpoint("skyblock.bingo", {uuid});
+    }
+
+    SkyblockFireSales() {
+        return this.FetchHypixelAPIEndpoint("skyblock.firesales", {}, false);
+    }
+
+    GetNetworkBoosters() {
+        return this.FetchHypixelAPIEndpoint("boosters");
+    }
+
+    GetPlayerCount() {
+        return this.FetchHypixelAPIEndpoint("counts");
+    }
+
+    GetLeaderboard() {
+        return this.FetchHypixelAPIEndpoint("leaderboards");
+    }
+
+    GetPunishmentStats() {
+        return this.FetchHypixelAPIEndpoint("punishments");
+    }
 
     async TestAPIKey() {
         try {
@@ -145,6 +240,8 @@ class HypixelAPI {
             throw new Error(errorCodes.RateLimited);
         } else if (res.status == 422) {
             throw new TypeError("Malformed arguments");
+        } else if (res.status == 503) {
+            throw new Error("Hypixel API down. Try requests again in a few minutes");
         }
     }
 
@@ -156,7 +253,7 @@ class HypixelAPI {
         if (typeof endpoint != "string")
             throw new TypeError(errorCodes.MissingFields);
         let baseUrl = "https://api.hypixel.net/v2/";
-        let endpointUrl = endpoint.replaceAll(".", "/");
+        let endpointUrl = endpoint.replaceAll(".", "/").replaceAll("-", "_");
         if (endpointUrl.endsWith("/"))
             throw new TypeError(
                 errorCodes.EndpointInvalid(
