@@ -142,7 +142,7 @@ class HypixelAPI {
         );
     }
 
-    GetCurrentSkyblockEvent() {
+    GetCurrentSkyblockBingoEvent() {
         return this.FetchHypixelAPIEndpoint(
             "resoucres.skyblock.bingo",
             {},
