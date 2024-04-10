@@ -45,19 +45,19 @@ class HypixelAPI {
     GetPlayerData(uuid) {
         if (typeof uuid != "string")
             throw new TypeError(errorCodes.InvalidFields);
-        return this.FetchHypixelAPIEndpoint("player", { uuid });
+        return this.FetchHypixelAPIEndpoint("player", { uuid: uuid });
     }
 
     GetPlayerRecentGames(uuid) {
         if (typeof uuid != "string")
             throw new TypeError(errorCodes.InvalidFields);
-        return this.FetchHypixelAPIEndpoint("recentgames", { uuid });
+        return this.FetchHypixelAPIEndpoint("recentgames", { uuid: uuid });
     }
 
     GetStatus(uuid) {
         if (typeof uuid != "string")
             throw new TypeError(errorCodes.InvalidFields);
-        return this.FetchHypixelAPIEndpoint("status", { uuid });
+        return this.FetchHypixelAPIEndpoint("status", { uuid: uuid });
     }
 
     GetGuild(options = {}) {
@@ -167,7 +167,7 @@ class HypixelAPI {
     GetCurrentAuctions(page) {
         page = page || 0;
         if (typeof page != "number") throw new TypeError(errorCodes.InvalidFields);
-        return this.FetchHypixelAPIEndpoint("skyblock.auctions", {page}, false);
+        return this.FetchHypixelAPIEndpoint("skyblock.auctions", {page:page}, false);
     }
 
     GetRecentEndedAuctions() {
@@ -186,7 +186,7 @@ class HypixelAPI {
 
     GetPlayerSkyblockProfiles(uuid) {
         if (typeof uuid != "string") throw new TypeError(errorCodes.MissingFields);
-        return this.FetchHypixelAPIEndpoint("skyblock.profiles",{uuid});
+        return this.FetchHypixelAPIEndpoint("skyblock.profiles",{uuid: uuid});
     }
 
     GetMuseumByProfile(profileUUID) {
@@ -196,7 +196,7 @@ class HypixelAPI {
 
     GetBingoData(uuid) {
         if (typeof uuid != "string") throw new TypeError(errorCodes.MissingFields);
-        return this.FetchHypixelAPIEndpoint("skyblock.bingo", {uuid});
+        return this.FetchHypixelAPIEndpoint("skyblock.bingo", {uuid: uuid});
     }
 
     SkyblockFireSales() {
@@ -247,7 +247,7 @@ class HypixelAPI {
 
     async FetchHypixelAPIEndpoint(
         endpoint,
-        extraData = {},
+        extraData,
         requireApiKey = true
     ) {
         if (typeof endpoint != "string")
@@ -261,11 +261,11 @@ class HypixelAPI {
                     '"." is not expected in the end of the URL.'
                 )
             );
-        if (!hypixelApiEndpoints.find(endpointUrl))
+        if (!hypixelApiEndpoints.includes(endpointUrl))
             throw new TypeError(errorCodes.EndpointInvalid(endpointUrl));
 
         let datax = "";
-        if (extraData.length && extraData.length > 0) {
+        if (extraData && Object.keys(extraData).length && Object.keys(extraData).length > 0) {
             datax = datax + "?";
 
             for (const x of Object.keys(extraData)) {
@@ -281,11 +281,11 @@ class HypixelAPI {
         if (requireApiKey) {
             data = await fetch(baseUrl + endpointUrl + datax, {
                 headers: { "Api-Key": this.ApiKey },
-            }).then(this.CheckHypixelAPIDataStatus);
+            }).then(this.CheckHypixelAPIDataStatus).then( r => r.json() );
         } else {
             data = await fetch(baseUrl + endpointUrl + datax).then(
                 this.CheckHypixelAPIDataStatus
-            );
+            ).then( r => r.json() );
         }
 
         return data;

@@ -6,8 +6,114 @@
     </head>
     <body>
         <div class="__container__">
-            <p class="title-code"><span class="highlight-fc003">class</span> HypixelAPI</p>
-            
+            <p class="title-code">
+                <span class="highlight-fc003">class</span> HypixelAPI
+            </p>
+            <p class="code">
+                <span class="highlight-fc002">export class</span>
+                <span class="highlight-fc004">HypixelAPI</span>;
+            </p>
+            <h5>The main api interacting with the Hypixel API</h5>
+            <hr />
+            <p class="title-code">
+                <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    class="flex-shrink-0"
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M13.51 4l-5-3h-1l-5 3-.49.86v6l.49.85 5 3h1l5-3 .49-.85v-6L13.51 4zm-6 9.56l-4.5-2.7V5.7l4.5 2.45v5.41zM3.27 4.7l4.74-2.84 4.74 2.84-4.74 2.59L3.27 4.7zm9.74 6.16l-4.5 2.7V8.15l4.5-2.45v5.16z"
+                    ></path>
+                </svg>
+                Constructor
+            </p>
+            <p class="code-with-info">
+                constructor(apiKey: <span class="highlight-fc005">string</span>)
+            </p>
+            <p class="codeinfo">
+                apiKey: The Hypixel Application / Development API Key ⚠️
+                Development API Key is unrecommended. Create a permanent client
+                application instead.
+            </p>
+            <br />
+            <hr />
+            <p class="title-code">
+                <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    class="flex-shrink-0"
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M13.51 4l-5-3h-1l-5 3-.49.86v6l.49.85 5 3h1l5-3 .49-.85v-6L13.51 4zm-6 9.56l-4.5-2.7V5.7l4.5 2.45v5.41zM3.27 4.7l4.74-2.84 4.74 2.84-4.74 2.59L3.27 4.7zm9.74 6.16l-4.5 2.7V8.15l4.5-2.45v5.16z"
+                    ></path>
+                </svg>
+                Methods
+            </p>
+            <p class="codeinfo">
+                ⚠️ All of the methods are <b>not</b> static. A valid API key is
+                required to get data.
+            </p>
+            <br />
+            <p class="title-code" style="font-size: 17.5">Example</p>
+            <p class="code">
+                const { HypixelAPI } = require("../src/index");<br/>const client = new HypixelAPI("YOUR_HYPIXEL_API_KEY_GOES_HERE");<br/>(async() => {<br/>&emsp;const data = await client.GetPlayerData("b3e9ab8c9aca4ea6b51785d66a8d3dc7");<br/>&emsp;console.log(data);<br/>})();
+            </p>
+            <br />
+            <hr/>
+            <div id="GetPlayerData">
+                <a class="code-with-info" href="#GetPlayerData">
+                    GetPlayerData(uuid: string)
+                </a>
+                <p class="codeinfo">Obtains user's hypixel data</p>
+            </div>
+
+            <hr/>
+            <div id="GetPlayerRecentGames">
+                <a class="code-with-info" href="#GetPlayerRecentGames">
+                    GetPlayerRecentGames(uuid: string)
+                </a>
+                <p class="codeinfo">Obtains user's recently played games</p>
+            </div>
+
+            <hr />
+            <div id="FetchHypixelAPIEndpoint">
+                <span class="badge-warning">Private</span>
+                <a class="code-with-info" href="#FetchHypixelAPIEndpoint">
+                    <span class="highlight-fc002">async</span>
+                    FetchHypixelAPIEndpoint(endpoint: string, extraData?: {},
+                    requireApiKey?: boolean)
+                </a>
+                <p class="codeinfo">Fetchs the hypixel API<br/>endpoint -> string after /v2/, replace "/" with "."<br/>extraData -> any extra data that is required<br/>requireApiKey -> whether or not the api key is needed to place in header. Default: true</p>
+            </div>
+            <hr/>
+            <div id="CheckHypixelAPIDataStatus">
+                <span class="badge-warning">Private</span>
+                <a class="code-with-info" href="#CheckHypixelAPIDataStatus">
+                    CheckHypixelAPIDataStatus(res: Response)
+                </a>
+                <p class="codeinfo">Checks the Fetch respond information, throw error if status is not 200</p>
+            </div>
+            <hr/>
+            <div id="TestAPIKey">
+                <span class="badge-warning">Private</span>
+                <a class="code-with-info" href="#TestAPIKey">
+                    <span class="highlight-fc002">async</span>
+                    TestApiKey()
+                </a>
+                <p class="codeinfo">Checks apiKey obtained from constructor. Throws error if hypixel api return status other than 200.</p>
+            </div>
         </div>
     </body>
 </html>

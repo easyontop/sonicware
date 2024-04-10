@@ -4,6 +4,24 @@ body {
     font-family: Minecraft;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    padding-top: 10px;
+    background: rgb(126 131 187 / 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(94 102 188);
+    border-radius: 25px;
+    padding-left: 5px;
+    border: 5px solid rgba(0, 0, 0, 0);
+    border-radius: 9999px;
+    background-clip: padding-box;
+}
+
 .__container__ {
     padding: 10px;
 }
@@ -14,6 +32,14 @@ p.code {
     border-radius: 5px;
     padding: 5px;
     padding-left: 15px;
+}
+
+.highlight-fc005 {
+    color: #5865f2;
+}
+
+.highlight-fc004 {
+    color: #F69D50;
 }
 
 .highlight-fc003 {
@@ -28,6 +54,20 @@ p.code {
     color: #96D0FF;
 }
 
+.badge-warning {
+    background-color: rgb(246 93 137/.5);
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font: Poppins;
+    color: white;
+    border-radius: 40px;
+}
+
+hr {
+    border: 1px solid rgb(64 64 64 / 0.5);
+}
+
 @font-face {
     font-family: Minecraft;
     src: url(minecraft.ttf);
@@ -36,6 +76,20 @@ p.code {
 @font-face {
     font-family: Orbitron;
     src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2);
+}
+
+.code-with-info {
+    padding-top: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.codeinfo {
+    font-size: 17.5px;
+    font-family: Poppins;
 }
 
 .title {
@@ -51,6 +105,11 @@ p.code {
     font-family: Orbitron;
     font-weight: bold;
     font-size: 25px;
+}
+
+.title-code > svg {
+    width: 25px;
+    height: 25px;
 }
 
 .info__ {
