@@ -1,0 +1,77 @@
+body {
+    background-color: hsl(224 71% 4%);
+    color: hsl(213 31% 91%);
+    font-family: Minecraft;
+    text-align: center;
+}
+
+.__container__ {
+    padding: 10px;
+}
+
+@font-face {
+    font-family: Minecraft;
+    src: url(minecraft.ttf);
+}
+
+@font-face {
+    font-family: Orbitron;
+    src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2);
+}
+
+.title {
+    padding-top: 30px;
+    font-family: Orbitron;
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+
+.info__ {
+    color: rgb(160 160 160);
+    font-family: Minecraft;
+    font-size: 20;
+}
+
+.buttonlist {
+    display: flex;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.buttonlist > a {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: Orbitron;
+    font-size: .875rem;
+    margin: 0 auto;
+}
+
+.highlight-blue {
+    background-color: #5865f2;
+    padding: 5px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    display: inline;
+    border-radius: 3.5px;
+    animation: highlightblueanimation infinite 7s;
+}
+
+@keyframes highlightblueanimation {
+    0% {
+        background-color: #5865f2;
+    }
+    50% {
+        background-color: #727be6;
+    }
+    100% {
+        background-color: #5865f2;
+    }
+}

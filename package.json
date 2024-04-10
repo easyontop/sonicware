@@ -1,5 +1,5 @@
 {
-  "name": "@easyontop/sonicware",
+  "name": "sonicware",
   "version": "0.0.1",
   "description": "SonicBot Utilities",
   "main": "src/index.js",
@@ -16,7 +16,7 @@
     "url": "https://github.com/easyontop/sonicware/issues"
   },
   "homepage": "https://github.com/easyontop/sonicware#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "dependencies": {
+    "node-fetch": "^2.7.0"
   }
 }
