@@ -9,5 +9,5 @@ function specialRedirect(url) {
 }
 
 $(window).bind("popstate", () => {
-    location.reload();
+    $(".__container__").load(location.href); // Whenever user presses "< or >" in action bar, attempt to load the page that is in the website in order not to break itself.
 });
