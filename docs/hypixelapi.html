@@ -3,8 +3,56 @@
         <link rel="stylesheet" href="style.css" />
         <title>Sonicware - Guide | HypixelAPI</title>
         <link rel="icon" href="iconx.png" />
+        <meta name="viewport" content="width=device-width" />
+        <script src="./script.js"></script>
+        <script>
+            function TRO_() {
+                setTimeout(() => {
+                    const scrollToElementID =
+                        location.href.split("?scrollTo=")[1];
+
+                    if (scrollToElementID) {
+                        let elementToBeScrolledInto =
+                            document.getElementById(scrollToElementID);
+                        if (elementToBeScrolledInto) {
+                            elementToBeScrolledInto.scrollIntoView({
+                                behavior: "smooth",
+                            });
+                        } else {
+                            if (location.href.includes("file:///")) {
+                                // test mode dumbass .html
+                                window.history.replaceState(
+                                    {},
+                                    "",
+                                    "./hypixelapi.html"
+                                );
+                            } else {
+                                window.history.replaceState(
+                                    {},
+                                    "",
+                                    "./hypixelapi"
+                                );
+                            }
+                        }
+                    }
+                }, 100);
+            }
+
+            setInterval(() => {
+                if (location.href.split("#")[1]) {
+                    let scrollToXX = location.href.split("#")[1];
+                    if (document.body.scrollTop != 0) {
+                        document.body.scrollIntoView();
+                    }
+                    window.history.replaceState({}, "", "?scrollTo=" + scrollToXX);
+                    document.getElementById(scrollToXX).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }, 100);
+        </script>
     </head>
-    <body>
+    <body onload="TRO_()">
         <div class="__container__">
             <p class="title-code">
                 <span class="highlight-fc003">class</span> HypixelAPI
@@ -14,6 +62,116 @@
                 <span class="highlight-fc004">HypixelAPI</span>;
             </p>
             <h5>The main api interacting with the Hypixel API</h5>
+            <hr />
+            <div class="code" style="display: flex">
+                <div>
+                    <span class="title-code"
+                        ><svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 16 16"
+                            aria-hidden="true"
+                            class="flex-shrink-0"
+                            height="24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M13.51 4l-5-3h-1l-5 3-.49.86v6l.49.85 5 3h1l5-3 .49-.85v-6L13.51 4zm-6 9.56l-4.5-2.7V5.7l4.5 2.45v5.41zM3.27 4.7l4.74-2.84 4.74 2.84-4.74 2.59L3.27 4.7zm9.74 6.16l-4.5 2.7V8.15l4.5-2.45v5.16z"
+                            ></path>
+                        </svg>
+                        Methods</span
+                    >
+                    <p><a href="#GetPlayerData">GetPlayerData</a></p>
+                    <p>
+                        <a href="#GetPlayerRecentGames">GetPlayerRecentGames</a>
+                    </p>
+                    <p><a href="#GetStatus">GetStatus</a></p>
+                    <p><a href="#GetGuild">GetGuild</a></p>
+                    <p><a href="#GetHypixelGames">GetHypixelGames</a></p>
+                </div>
+                <div>
+                    <span class="title-code" style="color: transparent"
+                        >Methods</span
+                    >
+                    <p>
+                        <a href="#GetHypixelAchievements"
+                            >GetHypixelAchievements</a
+                        >
+                    </p>
+                    <p>
+                        <a href="#GetHypixelChallenges">GetHypixelChallenges</a>
+                    </p>
+                    <p><a href="#GetHypixelQuests">GetHypixelQuests</a></p>
+                    <p>
+                        <a href="#GetHypixelGuildAchievements"
+                            >GetHypixelGuildAchievements</a
+                        >
+                    </p>
+                    <p><a href="#GetVanityPets">GetVanityPets</a></p>
+                </div>
+                <div>
+                    <span class="title-code" style="color: transparent"
+                        >Methods</span
+                    >
+                    <p>
+                        <a href="#GetVanityCompanions">GetVanityCompanions</a>
+                    </p>
+                    <p>
+                        <a href="#GetSkyblockCollections"
+                            >GetSkyblockCollections</a
+                        >
+                    </p>
+                    <p><a href="#GetSkyblockSkills">GetSkyblockSkills</a></p>
+                    <p><a href="#GetSkyblockItems">GetSkyblockItems</a></p>
+                    <p>
+                        <a href="#GetSkyblockElection">GetSkyblockElection</a>
+                    </p>
+                </div>
+                <div>
+                    <span class="title-code" style="color: transparent"
+                        >Methods</span
+                    >
+                    <p>
+                        <a href="#GetCurrentSkyblockBingoEvent"
+                            >GetCurrentSkyblockBingoEvent</a
+                        >
+                    </p>
+                    <p><a href="#GetSkyblockNews">GetSkyblockNews</a></p>
+                    <p><a href="#GetPlayerAuctions">GetPlayerAuctions</a></p>
+                    <p><a href="#GetCurrentAuctions">GetCurrentAuctions</a></p>
+                    <p>
+                        <a href="#GetRecentEndedAuctions"
+                            >GetRecentEndedAuctions</a
+                        >
+                    </p>
+                </div>
+                <div>
+                    <span class="title-code" style="color: transparent"
+                        >Methods</span
+                    >
+                    <p><a href="#GetBazaarStats">GetBazaarStats</a></p>
+                    <p><a href="#GetSkyblockProfile">GetSkyblockProfile</a></p>
+                    <p>
+                        <a href="#GetPlayerSkyblockProfiles"
+                            >GetPlayerSkyblockProfiles</a
+                        >
+                    </p>
+                    <p><a href="#GetMuseumByProfile">GetMuseumByProfile</a></p>
+                    <p><a href="#GetBingoData">GetBingoData</a></p>
+                </div>
+                <div>
+                    <span class="title-code" style="color: transparent"
+                        >Methods</span
+                    >
+                    <p><a href="#SkyblockFireSales">SkyblockFireSales</a></p>
+                    <p><a href="#GetNetworkBoosters">GetNetworkBoosters</a></p>
+                    <p><a href="#GetPlayerCount">GetPlayerCount</a></p>
+                    <p><a href="#GetLeaderboard">GetLeaderboard</a></p>
+                    <p><a href="#GetPunishmentStats">GetPunishmentStats</a></p>
+                </div>
+            </div>
             <hr />
             <p class="title-code">
                 <svg
@@ -68,10 +226,13 @@
             <br />
             <p class="title-code" style="font-size: 17.5">Example</p>
             <p class="code">
-                const { HypixelAPI } = require("../src/index");<br/>const client = new HypixelAPI("YOUR_HYPIXEL_API_KEY_GOES_HERE");<br/>(async() => {<br/>&emsp;const data = await client.GetPlayerData("b3e9ab8c9aca4ea6b51785d66a8d3dc7");<br/>&emsp;console.log(data);<br/>})();
+                const { HypixelAPI } = require("../src/index");<br />const
+                client = new HypixelAPI("YOUR_HYPIXEL_API_KEY_GOES_HERE");<br />(async()
+                => {<br />&emsp;const data = await
+                client.GetPlayerData("b3e9ab8c9aca4ea6b51785d66a8d3dc7");<br />&emsp;console.log(data);<br />})();
             </p>
             <br />
-            <hr/>
+            <hr />
             <div id="GetPlayerData">
                 <a class="code-with-info" href="#GetPlayerData">
                     GetPlayerData(uuid: string)
@@ -79,30 +240,39 @@
                 <p class="codeinfo">Obtains user's hypixel data</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetPlayerRecentGames">
                 <a class="code-with-info" href="#GetPlayerRecentGames">
                     GetPlayerRecentGames(uuid: string)
                 </a>
                 <p class="codeinfo">Obtains user's recently played games</p>
             </div>
-            <hr/>
+            <hr />
             <div id="GetStatus">
                 <a class="code-with-info" href="#GetStatus">
                     GetStatus(uuid: string)
                 </a>
-                <p class="codeinfo">Get the current online status of a specific player</p>
+                <p class="codeinfo">
+                    Get the current online status of a specific player
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetGuild">
                 <a class="code-with-info" href="#GetGuild">
                     GetGuild(options: {id: {}, player: {}, name: {}})
                 </a>
-                <p class="codeinfo">Get the guild with provided query<br/><a style="color:white;" href="https://api.hypixel.net/#tag/Player-Data/paths/~1v2~1status/get" target="_blank">Click Here for more information</a><br/>Only one argument is required</p>
+                <p class="codeinfo">
+                    Get the guild with provided query<br /><a
+                        style="color: white"
+                        href="https://api.hypixel.net/#tag/Player-Data/paths/~1v2~1status/get"
+                        target="_blank"
+                        >Click Here for more information</a
+                    ><br />Only one argument is required
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetHypixelGames">
                 <a class="code-with-info" href="#GetHypixelGames">
                     GetHypixelGames()
@@ -110,15 +280,17 @@
                 <p class="codeinfo">Get all the avaliable hypixel games</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetHypixelAchievements">
                 <a class="code-with-info" href="#GetHypixelAchievements">
                     GetHypixelAchievements()
                 </a>
-                <p class="codeinfo">Get all the avaliable hypixel achievements</p>
+                <p class="codeinfo">
+                    Get all the avaliable hypixel achievements
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetHypixelChallenges">
                 <a class="code-with-info" href="#GetHypixelChallenges">
                     GetHypixelChallenges()
@@ -126,7 +298,7 @@
                 <p class="codeinfo">Get all the avaliable hypixel challenges</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetHypixelQuests">
                 <a class="code-with-info" href="#GetHypixelQuests">
                     GetHypixelQuests()
@@ -134,36 +306,40 @@
                 <p class="codeinfo">Get all the avaliable hypixel quests</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetHypixelGuildAchievements">
                 <a class="code-with-info" href="#GetHypixelGuildAchievements">
                     GetHypixelGuildAchievements()
                 </a>
-                <p class="codeinfo">Get all the hypixel guild avaliable achievements</p>
+                <p class="codeinfo">
+                    Get all the hypixel guild avaliable achievements
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetVanityPets">
                 <a class="code-with-info" href="#GetVanityPets">
                     GetVanityPets()
                 </a>
             </div>
-            <hr/>
+            <hr />
             <div id="GetVanityCompanions">
                 <a class="code-with-info" href="#GetVanityCompanions">
                     GetVanityCompanions()
                 </a>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetSkyblockCollections">
                 <a class="code-with-info" href="#GetSkyblockCollections">
                     GetSkyblockCollections()
                 </a>
-                <p class="codeinfo">Get all the avaliable skyblock collections</p>
+                <p class="codeinfo">
+                    Get all the avaliable skyblock collections
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetSkyblockSkills">
                 <a class="code-with-info" href="#GetSkyblockSkills">
                     GetSkyblockSkills()
@@ -171,7 +347,7 @@
                 <p class="codeinfo">Get all the avaliable skyblock skills</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetSkyblockItems">
                 <a class="code-with-info" href="#GetSkyblockItems">
                     GetSkyblockItems()
@@ -179,21 +355,21 @@
                 <p class="codeinfo">Get all the avaliable skyblock items</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetSkyblockElection">
                 <a class="code-with-info" href="#GetSkyblockElection">
                     GetSkyblockElection()
                 </a>
                 <p class="codeinfo">Get current election / mayor</p>
             </div>
-            <hr/>
+            <hr />
             <div id="GetCurrentSkyblockBingoEvent">
                 <a class="code-with-info" href="#GetCurrentSkyblockBingoEvent">
                     GetCurrentSkyblockBingoEvent()
                 </a>
                 <p class="codeinfo">Get current skyblock bingo event</p>
             </div>
-            <hr/>
+            <hr />
             <div id="GetSkyblockNews">
                 <a class="code-with-info" href="#GetSkyblockNews">
                     GetSkyblockNews()
@@ -201,23 +377,28 @@
                 <p class="codeinfo">Get latest skyblock news</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetPlayerAuctions">
                 <a class="code-with-info" href="#GetPlayerAuctions">
-                    GetPlayerAuctions(options: { uuid: string, player: string, profile, string })
+                    GetPlayerAuctions(options: { uuid: string, player: string,
+                    profile, string })
                 </a>
-                <p class="codeinfo">Get player auction, only one argument should be provided</p>
+                <p class="codeinfo">
+                    Get player auction, only one argument should be provided
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetCurrentAuctions">
                 <a class="code-with-info" href="#GetCurrentAuctions">
                     GetCurrentAuctions(page?: number)
                 </a>
-                <p class="codeinfo">Get all the current auctions still hosting</p>
+                <p class="codeinfo">
+                    Get all the current auctions still hosting
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetRecentEndedAuctions">
                 <a class="code-with-info" href="#GetRecentEndedAuctions">
                     GetRecentEndedAuctions()
@@ -225,23 +406,27 @@
                 <p class="codeinfo">Get recently ended auctions</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetBazaarStats">
                 <a class="code-with-info" href="#GetBazaarStats">
-                    GetBazaarStats
+                    GetBazaarStats()
                 </a>
-                <p class="codeinfo">More information in https://api.hypixel.net/</p>
+                <p class="codeinfo">
+                    More information in https://api.hypixel.net/
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetSkyblockProfile">
                 <a class="code-with-info" href="#GetSkyblockProfile">
                     GetSkyblockProfile(profileUUID: string)
                 </a>
-                <p class="codeinfo">Get the profile of the provided skyblock profile UUID</p>
+                <p class="codeinfo">
+                    Get the profile of the provided skyblock profile UUID
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetPlayerSkyblockProfiles">
                 <a class="code-with-info" href="#GetPlayerSkyblockProfiles">
                     GetPlayerSkyblockProfiles(uuid: string)
@@ -249,15 +434,17 @@
                 <p class="codeinfo">Get profile list of the player</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetMuseumByProfile">
                 <a class="code-with-info" href="#GetMuseumByProfile">
                     GetMuseumByProfile(profileUUID: string)
                 </a>
-                <p class="codeinfo">Get all museum data inside provided profile</p>
+                <p class="codeinfo">
+                    Get all museum data inside provided profile
+                </p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetBingoData">
                 <a class="code-with-info" href="#GetBingoData">
                     GetBingoData(uuid: string)
@@ -265,7 +452,7 @@
                 <p class="codeinfo">Get Bingo data from a player</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="SkyblockFireSales">
                 <a class="code-with-info" href="#SkyblockFireSales">
                     SkyblockFireSales()
@@ -273,7 +460,7 @@
                 <p class="codeinfo">Get all the fire sales of skyblock</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetNetworkBoosters">
                 <a class="code-with-info" href="#GetNetworkBoosters">
                     GetNetworkBoosters()
@@ -281,7 +468,7 @@
                 <p class="codeinfo">Get all the active network boosters</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetPlayerCount">
                 <a class="code-with-info" href="#GetPlayerCount">
                     GetPlayerCount()
@@ -289,7 +476,7 @@
                 <p class="codeinfo">Get the player count data in hypixel</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetLeaderboard">
                 <a class="code-with-info" href="#GetLeaderboard">
                     GetLeaderboard()
@@ -297,7 +484,7 @@
                 <p class="codeinfo">Hypixel Leaderboard</p>
             </div>
 
-            <hr/>
+            <hr />
             <div id="GetPunishmentStats">
                 <a class="code-with-info" href="#GetPunishmentStats">
                     GetPunishmentStats()
@@ -313,25 +500,37 @@
                     FetchHypixelAPIEndpoint(endpoint: string, extraData?: {},
                     requireApiKey?: boolean)
                 </a>
-                <p class="codeinfo">Fetchs the hypixel API<br/>endpoint -> string after /v2/, replace "/" with "."<br/>extraData -> any extra data that is required<br/>requireApiKey -> whether or not the api key is needed to place in header. Default: true</p>
+                <p class="codeinfo">
+                    Fetchs the hypixel API<br />endpoint -> string after /v2/,
+                    replace "/" with "."<br />extraData -> any extra data that
+                    is required<br />requireApiKey -> whether or not the api key
+                    is needed to place in header. Default: true
+                </p>
             </div>
-            <hr/>
+            <hr />
             <div id="CheckHypixelAPIDataStatus">
                 <span class="badge-warning">Private</span>
                 <a class="code-with-info" href="#CheckHypixelAPIDataStatus">
                     CheckHypixelAPIDataStatus(res: Response)
                 </a>
-                <p class="codeinfo">Checks the Fetch respond information, throw error if status is not 200</p>
+                <p class="codeinfo">
+                    Checks the Fetch respond information, throw error if status
+                    is not 200
+                </p>
             </div>
-            <hr/>
+            <hr />
             <div id="TestAPIKey">
                 <span class="badge-warning">Private</span>
                 <a class="code-with-info" href="#TestAPIKey">
                     <span class="highlight-fc002">async</span>
                     TestApiKey()
                 </a>
-                <p class="codeinfo">Checks apiKey obtained from constructor. Throws error if hypixel api return status other than 200.</p>
+                <p class="codeinfo">
+                    Checks apiKey obtained from constructor. Throws error if
+                    hypixel api return status other than 200.
+                </p>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </body>
 </html>

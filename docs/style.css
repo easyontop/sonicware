@@ -26,12 +26,22 @@ body {
     padding: 10px;
 }
 
-p.code {
+.code {
     border: 1px solid hsl(216 34% 17%);
     width: calc(100% - 15px);
     border-radius: 5px;
     padding: 5px;
     padding-left: 15px;
+    font-family: Poppins;
+}
+
+div.code > div:not(:first-child) {
+    padding-left: 2.5%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 .highlight-fc005 {
