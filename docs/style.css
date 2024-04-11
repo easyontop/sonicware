@@ -42,6 +42,7 @@ div.code > div:not(:first-child) {
 a {
     text-decoration: none !important;
     color: white !important;
+    cursor: pointer;
 }
 
 .highlight-fc005 {
