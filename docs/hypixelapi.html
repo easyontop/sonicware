@@ -225,10 +225,10 @@
             <br />
             <p class="title-code" style="font-size: 17.5">Example</p>
             <p class="code">
-                const { HypixelAPI } = require("../src/index");<br />const
-                client = new HypixelAPI("YOUR_HYPIXEL_API_KEY_GOES_HERE");<br />(async()
-                => {<br />&emsp;const data = await
-                client.GetPlayerData("b3e9ab8c9aca4ea6b51785d66a8d3dc7");<br />&emsp;console.log(data);<br />})();
+                <span class="highlight-fc002">const</span> { <span class="highlight-fc004">HypixelAPI</span> } = <span class="highlight-fc002">require</span>(<span class="hl-string">"../src/index"</span>);<br /><span class="highlight-fc002">const</span>
+                <span class="highlight-fc004">client</span> = <span class="highlight-fc002">new</span> <span class="highlight-fc004">HypixelAPI</span>(<span class="hl-string">"YOUR_HYPIXEL_API_KEY_GOES_HERE"</span>);<br />(<span class="hl-const">async</span>()
+                => {<br />&emsp;<span class="hl-const">const</span> <span class="hl-var">data</span> = <span class="hl-const">await</span>
+                <span class="hl-var">client</span>.GetPlayerData(<span class="hl-string">"PLAYER_UUID_GO_HERE_(Get that from api.mojang.com)"</span>);<br />&emsp;console.<span class="hl-var">log</span>(data);<br />})();
             </p>
             <br />
             <hr />

@@ -45,6 +45,18 @@ a {
     cursor: pointer;
 }
 
+.hl-string {
+    color: #abe338;
+}
+
+.hl-const {
+    color: #f65d90;
+}
+
+.hl-var {
+    color: #f69d50;
+}
+
 .highlight-fc005 {
     color: #5865f2;
 }
