@@ -4,6 +4,6 @@ function specialRedirect(url) {
         window.location.href = "./"+ url + ".html";
         return;
     };
-    $(".__container__").load("/" + url);
-    history.pushState({}, "", "/" + url);
+    $(".__container__").load("./" + url);
+    history.pushState({}, "", "./" + url);
 }
