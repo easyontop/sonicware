@@ -7,3 +7,7 @@ function specialRedirect(url) {
     $(".__container__").load("./" + url);
     history.pushState({}, "", "./" + url);
 }
+
+$(window).bind("popstate", () => {
+    location.reload();
+});
