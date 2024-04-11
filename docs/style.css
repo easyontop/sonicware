@@ -49,7 +49,7 @@ a {
 }
 
 .highlight-fc004 {
-    color: #F69D50;
+    color: #f69d50;
 }
 
 .highlight-fc003 {
@@ -57,15 +57,15 @@ a {
 }
 
 .highlight-fc002 {
-    color: #F65D90;
+    color: #f65d90;
 }
 
 .highlight-fc001 {
-    color: #96D0FF;
+    color: #96d0ff;
 }
 
 .badge-warning {
-    background-color: rgb(246 93 137/.5);
+    background-color: rgb(246 93 137/0.5);
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -88,6 +88,11 @@ hr {
     src: url(https://fonts.gstatic.com/s/orbitron/v31/yMJMMIlzdpvBhQQL_SC3X9yhF25-T1nyGy6BoWgz.woff2);
 }
 
+@font-face {
+    font-family: Poppins;
+    src: url(poppins.ttf);
+}
+
 .code-with-info {
     padding-top: 10px;
     font-size: 20px;
@@ -95,7 +100,6 @@ hr {
     color: white;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .codeinfo {
     font-size: 17.5px;
@@ -147,7 +151,7 @@ hr {
     border-radius: 5px;
     font-weight: 700;
     font-family: Orbitron;
-    font-size: .875rem;
+    font-size: 0.875rem;
     margin: 0 auto;
 }
 
@@ -161,12 +165,12 @@ a.button {
     color: black;
     border-radius: 5px;
     font-family: Orbitron;
-    font-size: .875rem;
+    font-size: 0.875rem;
     margin: 0 auto;
 }
 
 svg {
-    width: .8rem;
+    width: 0.8rem;
     height: auto;
 }
 
