@@ -40,8 +40,8 @@ div.code > div:not(:first-child) {
 }
 
 a {
-    text-decoration: none;
-    color: white;
+    text-decoration: none !important;
+    color: white !important;
 }
 
 .highlight-fc005 {
